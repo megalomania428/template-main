@@ -1,1 +1,1 @@
-# GitHub actions library
+# Megalomania template
