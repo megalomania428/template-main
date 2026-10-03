@@ -22,8 +22,9 @@ permissions:
   pull-requests: write
   issues: write
 jobs:
-  ai-review:
+  review-pi_dev:
     runs-on: ubuntu-latest
+    name: review pi.dev
     steps:
       - uses: actions/checkout@v7
         with:
@@ -31,8 +32,8 @@ jobs:
           fetch-tags: true
           submodules: recursive
           persist-credentials: false
-      - name: Run AI review
-        uses: megalomania428/github-actions/review-pi_dev@updates-006
+      - name: Review by pi.dev agent
+        uses: megalomania428/github-actions/review-pi_dev@master
         env:
           LLM_URL: ${{ inputs.llm-api-url || secrets.LLM_API_URL }} # gitleaks:allow
           LLM_NAME: "${{ inputs.llm-api-model ||
